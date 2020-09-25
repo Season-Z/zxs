@@ -4,6 +4,8 @@ const fs = require('fs-extra')
 const ora = require('ora')
 const chalk = require('chalk')
 
+const { cacheDir } = require('./config')
+
 function downloader(params) {
   return new Promise((resolve, reject) => {
     /**
@@ -18,9 +20,10 @@ function downloader(params) {
     const url = `Season-Z/${templateName}${tagv ? `#${tagv}` : ''}`
 
     // 缓存目录
-    const dirname = process.platform === 'win32' ? 'USERPROFILE' : 'HOME'
-    const cacheDir = `${process.env[dirname]}/zxs`
-    const dest = path.resolve(cacheDir, templateName)
+    // const dirname = process.platform === 'win32' ? 'USERPROFILE' : 'HOME'
+    // const cacheDir = `${process.env[dirname]}/zxs`
+    const dir = cacheDir()
+    const dest = path.resolve(dir, templateName)
 
     if (fs.existsSync(dest)) {
       // 将缓存内容拷贝出来

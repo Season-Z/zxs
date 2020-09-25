@@ -12,11 +12,11 @@ const commandMap = {
     description: '初始化项目文件',
     examples: ['zxs init <name>']
   },
-  remove: {
-    command: 'remove <name>',
-    alias: 'r',
+  clear: {
+    command: 'remove',
+    alias: 'c',
     description: '删除本地缓存文件',
-    examples: ['zxs remove <name>']
+    examples: ['zxs clear']
   }
 }
 

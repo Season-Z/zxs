@@ -20,8 +20,6 @@ function downloader(params) {
     const url = `Season-Z/${templateName}${tagv ? `#${tagv}` : ''}`
 
     // 缓存目录
-    // const dirname = process.platform === 'win32' ? 'USERPROFILE' : 'HOME'
-    // const cacheDir = `${process.env[dirname]}/zxs`
     const dir = cacheDir()
     const dest = path.resolve(dir, templateName)
 

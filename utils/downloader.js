@@ -3,7 +3,6 @@ const path = require('path')
 const fs = require('fs-extra')
 const ora = require('ora')
 const chalk = require('chalk')
-const inquirer = require('inquirer')
 
 const { cacheDir } = require('./config')
 
@@ -23,7 +22,6 @@ class Downloader {
     this.tagv = tagv;
 
     // 缓存目录
-    // const dir = cacheDir()
     this.dest = path.resolve(cacheDir, this.templateName)
   }
 
@@ -33,24 +31,8 @@ class Downloader {
 
   async run() {
     if (this.checkCache()) {
-      await this.handlePrompt()
-    } else {
-      await this.handleDownload()
-    }
-  }
-
-  async handlePrompt() {
-    const { useCache } = await inquirer.prompt([
-      {
-        type: 'confirm',
-        message: '本地存在模板项目缓存，是否获取本地的模板',
-        name: 'useCache'
-      }
-    ])
-
-    if (useCache) {
       // 将缓存内容拷贝出来
-      fs.copy(this.dest, this.targetDir)
+      await fs.copy(this.dest, this.targetDir)
     } else {
       await this.handleDownload()
     }

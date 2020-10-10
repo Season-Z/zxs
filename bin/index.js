@@ -1,35 +1,55 @@
 #!/usr/bin/env node
 
-const program = require('commander')
-
+// 检测node版本函数
+const chalk = require('chalk')
+const semver = require('semver')
 const pkg = require('../package.json')
-const files = require('../')
 
-const commandMap = {
-  init: {
-    command: 'init <name>',
-    alias: 'i',
-    description: '初始化项目文件',
-    examples: ['zxs init <name>']
-  },
-  clear: {
-    command: 'remove',
-    alias: 'c',
-    description: '删除本地缓存文件',
-    examples: ['zxs clear']
+function checkNodeVersion(wanted, id) {
+  if (!semver.satisfies(process.version, wanted)) {
+    console.log(chalk.red(
+      '你是用的Node版本号为： ' + process.version + ', 但 ' + id +
+      ' 需运行在 ' + wanted + '.\n请升级你的Node版本'
+    ))
+    process.exit(1)
   }
 }
 
-const commandKeys = Reflect.ownKeys(commandMap)
+const nodeVersion = pkg.engines.node
+checkNodeVersion(nodeVersion, 'zxs-cli')
+
+if (semver.satisfies(process.version, '9.x')) {
+  console.log(chalk.red(
+    `你是用的Node版本是 ${process.version}.\n` +
+    `强烈建议你使用最新 LTS 版本`
+  ))
+}
+
+const program = require('commander')
+
+const { commandMap, commandKeys } = require('./commandMap')
+const files = require('../')
+
+
+// 自定义错误提示信息
+const errorMsg = require('../utils/errorMsg')
+// 缺少参数的错误提示
+errorMsg('missingArgument', argName => {
+  return `缺少必要参数 ${chalk.red(`<${argName}>`)}.`
+})
 
 // 生成命令
 commandKeys.forEach((name) => {
-  const { command, alias, description } = commandMap[name]
+  const { command, alias, description, validate } = commandMap[name]
   program
     .command(command)
     .alias(alias)
     .description(description)
-    .action((...args) => {
+    .action(async (...args) => {
+      // 如果存在校验函数
+      if (validate && typeof validate === 'function') {
+        await validate(...args);
+      }
       files(name, ...args)
     })
 })
@@ -44,14 +64,11 @@ program.on('--help', () => {
   })
 })
 
-program.version(pkg.version)
+program.version(pkg.version, '-v, --version')
   .usage('<command> [options]')
 
-// program.command('init <name>')
-//   .alias('i')
-//   .description('初始化项目文件')
-//   .action((name, opt) => {
-//     require('../lib/init')(name, opt)
-//   })
-
 program.parse(process.argv) // 解析变量
+
+if (!process.argv.slice(2).length) {
+  program.outputHelp()
+}

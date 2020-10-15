@@ -15,6 +15,10 @@ function checkNodeVersion(wanted, id) {
   }
 }
 
+const program = require('commander')
+const { commandMap, commandKeys } = require('./commandMap')
+const files = require('../')
+
 const nodeVersion = pkg.engines.node
 checkNodeVersion(nodeVersion, 'zxs-cli')
 
@@ -24,19 +28,6 @@ if (semver.satisfies(process.version, '9.x')) {
     `强烈建议你使用最新 LTS 版本`
   ))
 }
-
-const program = require('commander')
-
-const { commandMap, commandKeys } = require('./commandMap')
-const files = require('../')
-
-
-// 自定义错误提示信息
-const errorMsg = require('../utils/errorMsg')
-// 缺少参数的错误提示
-errorMsg('missingArgument', argName => {
-  return `缺少必要参数 ${chalk.red(`<${argName}>`)}.`
-})
 
 // 生成命令
 commandKeys.forEach((name) => {
@@ -63,6 +54,12 @@ program.on('--help', () => {
     console.log('  ' + examplesMsg)
   })
 })
+
+program.arguments('<command>').action((cmd) => {
+  console.log(` ${chalk.red(`Unknown command ${chalk.yellow(cmd)}.`)}`);
+  console.log();
+  program.outputHelp();
+});
 
 program.version(pkg.version, '-v, --version')
   .usage('<command> [options]')

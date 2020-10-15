@@ -6,9 +6,6 @@
   "bin": {
     "zxs": "bin/index.js"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Season-Z",
   "license": "MIT",
   "engines": {

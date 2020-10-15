@@ -18,5 +18,5 @@ yarn
 
 yarn link
 
-zxs init <项目名称>
+zxs init <项目名称> || zxs init .  (文件夹根目录)
 ```

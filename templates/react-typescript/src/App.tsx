@@ -1,17 +1,10 @@
 import React from 'react'
-import './style.less'
+import './app.less'
 
-interface IProps {
-  name: string
-  age: number
-}
-
-function App(props: IProps) {
-  const { name, age } = props
-
+function App() {
   return (
     <div className="app">
-      <span className="hhh">{`Hello! I'm ${name}, ${age} years old.`}</span>
+      <span>显示Two啊啊啊</span>
     </div>
   )
 }

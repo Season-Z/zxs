@@ -15,7 +15,7 @@ const PM_CONFIG = {
 };
 PM_CONFIG.cnpm = PM_CONFIG.npm;
 
-module.exports = class Manager {
+module.exports = class PackageManager {
   constructor(targetDir) {
     this.targetDir = targetDir // 生成的项目的目录
 
@@ -43,7 +43,6 @@ module.exports = class Manager {
       const commands = [this.bin, ...PM_CONFIG[this.bin][command], ...args]
       const newCommands = commands.join(' ')
 
-      console.log('newCommands', newCommands)
       execSync(newCommands, { stdio: [0, 1, 2] })
     } catch (error) {
       console.log(chalk.red(`${newCommands} 执行失败`))

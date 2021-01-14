@@ -1,28 +1,20 @@
 {
   "name": "zxs",
   "version": "1.0.0",
-  "description": "",
-  "main": "lib/index.js",
-  "bin": {
-    "zxs": "bin/index.js"
+  "description": "脚手架",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Season-Z/zxs.git"
   },
-  "author": "Season-Z",
+  "author": "",
   "license": "MIT",
-  "engines": {
-    "node": ">=8.9"
+  "bugs": {
+    "url": "https://github.com/Season-Z/zxs/issues"
   },
-  "dependencies": {
-    "axios": "^0.20.0",
-    "chalk": "^4.1.0",
-    "commander": "^6.1.0",
-    "download-git-repo": "^3.0.2",
-    "execa": "^4.0.3",
-    "fs-extra": "^9.0.1",
-    "inquirer": "^7.3.3",
-    "minimist": "^1.2.5",
-    "ora": "^5.0.0",
-    "semver": "^7.3.2",
-    "typescript": "^4.0.2",
-    "validate-npm-package-name": "^3.0.0"
-  }
+  "homepage": "https://github.com/Season-Z/zxs#readme"
 }

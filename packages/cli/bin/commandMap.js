@@ -2,11 +2,11 @@ const chalk = require('chalk')
 const minimist = require('minimist')
 
 const commandMap = {
-  init: {
-    command: 'init <name>',
+  create: {
+    command: 'create <app-name>',
     alias: 'i',
     description: '初始化项目文件',
-    examples: ['zxs init <name>'],
+    examples: ['zxs create <app-name>'],
     validate: async () => {
       if (minimist(process.argv.slice(3))._.length > 1) {
         console.log(chalk.yellow('🥑  检测到您输入了多个名称，将以第一个参数为项目名，舍弃后续参数哦'))
@@ -15,7 +15,7 @@ const commandMap = {
     }
   },
   clear: {
-    command: 'remove',
+    command: 'clear',
     alias: 'c',
     description: '删除本地缓存文件',
     examples: ['zxs clear']

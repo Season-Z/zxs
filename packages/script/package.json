@@ -1,0 +1,57 @@
+{
+  "name": "zxs-script",
+  "version": "1.0.0",
+  "description": "命令集",
+  "bin": {
+    "zxs-cli": "bin/zxs-script.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/runtime-corejs3": "^7.11.0",
+    "autoprefixer": "^9.8.5",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.6.0",
+    "file-loader": "^6.0.0",
+    "fork-ts-checker-webpack-plugin": "^5.0.13",
+    "glob": "^7.1.6",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "html-webpack-plugin": "^4.3.0",
+    "less": "^3.12.2",
+    "less-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-normalize": "^9.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.0.5",
+    "purgecss-webpack-plugin": "^2.3.0",
+    "sass-loader": "^9.0.2",
+    "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^4.0.0",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.0.9",
+    "webpackbar": "^4.0.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^6.2.1"
+  }
+}

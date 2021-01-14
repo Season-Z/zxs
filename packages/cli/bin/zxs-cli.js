@@ -1,33 +1,13 @@
 #!/usr/bin/env node
 
-// 检测node版本函数
+'use strict';
+
 const chalk = require('chalk')
-const semver = require('semver')
-const pkg = require('../package.json')
-
-function checkNodeVersion(wanted, id) {
-  if (!semver.satisfies(process.version, wanted)) {
-    console.log(chalk.red(
-      '你是用的Node版本号为： ' + process.version + ', 但 ' + id +
-      ' 需运行在 ' + wanted + '.\n请升级你的Node版本'
-    ))
-    process.exit(1)
-  }
-}
-
 const program = require('commander')
+
+const pkg = require('../package.json')
 const { commandMap, commandKeys } = require('./commandMap')
-const files = require('../')
-
-const nodeVersion = pkg.engines.node
-checkNodeVersion(nodeVersion, 'zxs-cli')
-
-if (semver.satisfies(process.version, '9.x')) {
-  console.log(chalk.red(
-    `你是用的Node版本是 ${process.version}.\n` +
-    `强烈建议你使用最新 LTS 版本`
-  ))
-}
+const files = require('../lib')
 
 // 生成命令
 commandKeys.forEach((name) => {
@@ -69,3 +49,11 @@ program.parse(process.argv) // 解析变量
 if (!process.argv.slice(2).length) {
   program.outputHelp()
 }
+
+function onError(err) {
+  console.error(err.message)
+  process.exit(1)
+}
+
+process.on('uncaughtException', onError)
+process.on('unhandledRejection', onError)

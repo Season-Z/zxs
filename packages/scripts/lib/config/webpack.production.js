@@ -1,14 +1,12 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
-const { merge } = require('webpack-merge')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const glob = require('glob')
 const PurgeCSSPlugin = require('purgecss-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-const common = require('./webpack.common.js')
 const { PROJECT_PATH, shouldOpenAnalyzer } = require('./config')
 
-module.exports = merge(common, {
+module.exports = {
   mode: 'production',
   devtool: 'none',
   plugins: [
@@ -22,11 +20,11 @@ module.exports = merge(common, {
       banner:
         '/** @preserve Powered by webpack-react-typescript (https://Season-Z.github.io/webpack-react-typescript) */',
     }),
-    shouldOpenAnalyzer &&
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'server',
-        analyzerHost: '127.0.0.1',
-        analyzerPort: 8888,
-      }),
+    // shouldOpenAnalyzer &&
+    // new BundleAnalyzerPlugin({
+    //   analyzerMode: 'server',
+    //   analyzerHost: '127.0.0.1',
+    //   analyzerPort: 8888,
+    // }),
   ].filter(Boolean),
-})
+}

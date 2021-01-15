@@ -3,10 +3,10 @@
 'use strict';
 
 const program = require('commander');
+const chalk = require('chalk')
+const pkg = require('../package.json')
 
-// TODO 完善
 program.command('start').action(() => {
-  console.log(1)
   require('../lib/development')();
 });
 
@@ -20,6 +20,9 @@ program.arguments('<command>').action(cmd => {
   console.log(`    ${chalk.red(`Unknown command ${chalk.yellow(cmd)}.`)}`);
   console.log();
 });
+
+program.version(pkg.version, '-v, --version')
+  .usage('<command> [options]')
 
 program.parse(process.argv);
 

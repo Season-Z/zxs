@@ -1,11 +1,9 @@
 const webpack = require('webpack')
-const { merge } = require('webpack-merge')
-const common = require('./webpack.common.js')
 const { SERVER_HOST, SERVER_PORT } = require('./config')
 
-const proxySetting = require('../src/proxy.js')
+// const proxySetting = require('../src/proxy.js.js')
 
-module.exports = merge(common, {
+module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
   devServer: {
@@ -16,7 +14,7 @@ module.exports = merge(common, {
     compress: true, // 是否启用 gzip 压缩
     open: true, // 打开默认浏览器
     hot: true, // 热更新
-    proxy: { ...proxySetting },
+    // proxy: { ...proxySetting },
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
-})
+}

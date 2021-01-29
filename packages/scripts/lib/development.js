@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-const { developmentConfig } = require('./complexConfig')
+const webpack = require("webpack");
+const WebpackDevServer = require("webpack-dev-server");
+const { developmentConfig } = require("./complexConfig");
 
 module.exports = () => {
-  const config = developmentConfig()
+  const config = developmentConfig();
   const { devServer } = config;
 
   const compiler = webpack(config);

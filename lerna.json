@@ -1,0 +1,20 @@
+{
+  "packages": ["packages/*"],
+  "version": "0.0.0",
+  "command": {
+    "bootstrap": {
+      "hoist": true,
+      "npmClientArgs": ["--no-package-lock", "--no-ci"]
+    },
+    "version": {
+      "allowBranch": ["master"],
+      "conventionalCommits": true
+    },
+    "publish": {
+      "verifyAccess": false,
+      "registry": "http://nexus.ypsx-internal.com/repository/npm-private/"
+    }
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true
+}

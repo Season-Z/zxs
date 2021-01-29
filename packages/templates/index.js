@@ -8,7 +8,7 @@ const path = require('path')
  */
 module.exports = async function (targetDir, templateType) {
   const tempSrc = path.join(__dirname, './react-typescript')
-  // const files = await fs.readdir(tempSrc);
+  // const files = await fs.readdir(tempSrc)
 
   await fs.copy(tempSrc, targetDir)
 }

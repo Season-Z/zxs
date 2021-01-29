@@ -12,5 +12,15 @@
   "bugs": {
     "url": "https://github.com/Season-Z/zxs/issues"
   },
-  "homepage": "https://github.com/Season-Z/zxs#readme"
+  "homepage": "https://github.com/Season-Z/zxs#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.18.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "lerna": "^3.22.1"
+  }
 }

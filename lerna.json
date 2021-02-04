@@ -1,6 +1,6 @@
 {
   "packages": ["packages/*"],
-  "version": "0.0.0",
+  "version": "independent",
   "command": {
     "bootstrap": {
       "hoist": true,
@@ -12,7 +12,7 @@
     },
     "publish": {
       "verifyAccess": false,
-      "registry": "http://nexus.ypsx-internal.com/repository/npm-private/"
+      "registry": "https://npm.pkg.github.com"
     }
   },
   "npmClient": "yarn",

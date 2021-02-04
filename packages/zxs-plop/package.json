@@ -1,0 +1,25 @@
+{
+  "name": "zxs-plop",
+  "version": "0.0.0",
+  "description": "生成项目页面文件",
+  "author": "zhouxishun <1050494995@qq.com>",
+  "homepage": "https://github.com/Season-Z/zxs/tree/master/packages/zxs-plop#readme",
+  "license": "MIT",
+  "main": "lib/zxs-plop.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Season-Z/zxs.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/Season-Z/zxs/issues"
+  }
+}

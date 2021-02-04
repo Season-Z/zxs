@@ -13,7 +13,6 @@
 # misc
 .DS_Store
 .idea
-.vscode
 .svn
 .history
 

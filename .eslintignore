@@ -1,0 +1,13 @@
+**/*.md
+**/*.svg
+**/*.ejs
+**/*.html
+package.json
+/node_modules
+.babelrc.js
+.prettierrc.js
+.stylelintrc.js
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

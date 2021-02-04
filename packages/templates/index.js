@@ -1,5 +1,5 @@
-const fs = require('fs-extra')
-const path = require('path')
+const fs = require("fs-extra");
+const path = require("path");
 
 /**
  * 拷贝文件至输出目录
@@ -7,8 +7,7 @@ const path = require('path')
  * @param {*} templateType 模板类型
  */
 module.exports = async function (targetDir, templateType) {
-  const tempSrc = path.join(__dirname, './react-typescript')
-  // const files = await fs.readdir(tempSrc)
+  const tempSrc = path.join(__dirname, "./react-typescript");
 
-  await fs.copy(tempSrc, targetDir)
-}
+  await fs.copy(tempSrc, targetDir);
+};
